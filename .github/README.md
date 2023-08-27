@@ -1,18 +1,10 @@
-# T480 Hackintosh
-**OpenCore configuration for Lenovo Thinkpad T480**
+# Thinkpad T480 Hackintosh 🍏
+Welcome to the T480 Hackintosh project, aimed at enabling macOS to run on the Lenovo Thinkpad T480. 🚀
+<br/><br/>
 
-**TODO**
-- [ ] Create the EFI files from 0.
-- [ ] Dual boot tutorial. It's possible but you have to add the OpenCore entry with `efibootmgr` tool from a usb with Linux
-- [ ] Verify if current EFI supports Mojave to Sonoma.
-- [ ] Write a new README.md
+<img src="https://raw.githubusercontent.com/musamatini/T480-hackintosh/main/.github/assets/ThinkpadT480.png" alt="img" align="right" width="220px">
 
-<img src="https://raw.githubusercontent.com/HBlanqueto/T480-hackintosh/main/.github/assets/T480.webp" alt="img" align="right" width="220px">
-
-![GNU](https://img.shields.io/static/v1?style=for-the-badge&message=GNU+General+Public+License+3.0&color=A42E2B&logo=GNU&logoColor=FFFFFF&label=)
-![Apple](https://img.shields.io/static/v1?style=for-the-badge&message=OpenCore+0.9.4&color=000000&logo=Apple&logoColor=FFFFFF&label=)
-![Repo Size](https://img.shields.io/github/repo-size/HBlanqueto/T480-hackintosh?style=for-the-badge)
-## Disclaimer
+## Disclaimer ⚠️
 
 This EFI is based in [pierpaolodimarzo](https://github.com/pierpaolodimarzo/ThinkPad-T480) and [valnoxy](https://github.com/valnoxy/t480-oc) repository, go and support them. This repository couldn't be done without their work.
 
@@ -22,56 +14,56 @@ I constantly check `config.plist`status with [sanitychecker](https://sanitycheck
 
 Most of all components and services are working, take a look to [pierpaolodimarzo's list](https://github.com/pierpaolodimarzo/ThinkPad-T480/tree/main#-what-works) to make an idea about.
 
-## Hardware 💻
-> IMPORTANT!
+<br/>
+
+## Hardware Specifications 🛠️
+
+> **note**
+>**IMPORTANT!**
 >
 > 1. Add **NVMeFix.kext** if you don't use any Western Digital storage device.
 > 2. Generate your own **SMBIOS** or your won't be able to use Apple Services.
 
-| **Category**    | **Details**                                              |
-| --------------- | -------------------------------------------------------- |
-| **Display**     | 1920x1080                                                |
-| **SMBIOS**      | MacBookPro15,2                                           |
-| **CPU**         | Intel Core i7-8650                                       |
-| **GPU**         | Intel UHD Graphics 620                                   |
-| **Memory**      | 64G (32x2) DDR4 3200MHz (Only supports 2400MHz)          |
-| **LAN**         | Intel Ethernet Connection I219-V                         |
-| **Wifi**        | Intel Wi-Fi AC 8265NGW                                   |
-| **Audio**       | Realtek ALC256                                           |
-| **Bluetooth**   | Bluetooth 4.2                                            |
-| **Storage**     | Western Digital Blue SN570 1 Tb                          |
-| **Thunderbolt** | JHL6240 Thunderbolt 3 LP Alpine Ridge                    |
+| Category       | Details                            |
+| -------------- | ---------------------------------- |
+| Display        | 1920x1080                          |
+| SMBIOS         | MacBookPro15,2                     |
+| CPU            | Intel Core i7-8650                 |
+| GPU            | Intel UHD Graphics 620             |
+| Memory         | 64GB (32x2) DDR4 3200MHz           |
+| LAN            | Intel Ethernet Connection I219-V   |
+| Wifi           | Intel Wi-Fi AC 8265NGW             |
+| Audio          | Realtek ALC256                     |
+| Bluetooth      | Bluetooth 4.2                      |
+| Storage        | Western Digital Blue SN570 1TB     |
+| Thunderbolt    | JHL6240 Thunderbolt 3 LP Alpine Ridge |
 
-### Succesfully Installed
-This is a list of different ThinkPad models that using this EFI could install macOS.
-- [ThinkPad T580](https://es.scribd.com/document/561921936/ThinkPad-T580-Platform-Specifications) tested by **rvlphee**, reference [here](https://github.com/HBlanqueto/T480-hackintosh/issues/2)
+<br/>
 
-## BIOS ⚙️
-Make sure to configure your BIOS options like this
--  `Security > Security Chip`: **Disabled**
--  `Memory Protection > Execution Prevention`: **Enabled**
--  `Virtualization > Intel Virtualization Technology`: **Enabled**
--  `Virtualization > Intel VT-d Feature`: **Enabled**
--  `Anti-Theft > Computrace > Current Setting`: **Disabled**
--  `Secure Boot > Secure Boot`: **Disabled**
--  `Intel SGX  Intel SGX Control`: **Disabled**
--  `Device Guard`: **Disabled**
+## BIOS Configuration 🔧
 
-StartUp Menu
--  `UEFI/Legacy Boot`: **UEFI Only**
--  `CSM Support`: **No**
+For successful installation, configure your BIOS settings as follows:
 
-USB Menu
--  `Always On USB`: **Disabled**
+- Security > Security Chip: **Disabled**
+- Memory Protection > Execution Prevention: **Enabled**
+- Virtualization > Intel Virtualization Technology: **Enabled**
+- Virtualization > Intel VT-d Feature: **Enabled**
+- Anti-Theft > Computrace > Current Setting: **Disabled**
+- Secure Boot > Secure Boot: **Disabled**
+- Intel SGX Intel SGX Control: **Disabled**
+- Device Guard: **Disabled**
 
-Thunderbolt Menu
--  `Thunderbolt BIOS Assist Mode`: **Disabled**
--  `Wake by Thunderbolt(TM) 3`: **Disabled**
--  `Security Level`: **No Security**
--  `Support in Pre Boot Environment > Thunderbolt(TM) device`: **Enabled**
+Make sure to set your StartUp Menu options to UEFI Only and disable `CSM Support`.
+
+For USB settings, set `Always On USB` to **Disabled**.
+
+In the Thunderbolt Menu, configure the settings accordingly.
+
+
+<br/>
 
 ## Preparing USB 🛠️
-> **Notes**
+> **note**
 >
 > Next steps were tought to be done in a Windows system, I'll recommend using Python3 from the Microsoft Store.
 
@@ -79,7 +71,7 @@ Thunderbolt Menu
 - [**ProperTree**](https://github.com/corpnewt/ProperTree)
 - [**GenSMBIOS**](https://github.com/corpnewt/GenSMBIOS)
 
-### Formating USB
+### Formating USB 🧹
 1. Plug your USB device.
 2. Open CMD with administrative permissions, type `diskpart`
 3. Type `list disk` to see your disk id.
@@ -88,7 +80,7 @@ Thunderbolt Menu
 6. Create a new partition where we can put our files on. First, type `create partition primary`, then select the new partition with `select partition 1` and format it `format fs=fat32 quick`.
 7. Finally, mount your pendrive by typing `assign`
 
-### OpenCore
+### OpenCore 🔄
 1. Download [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) as a ZIP.
 2. Extract the OpenCorePkg-master.zip file.
 3. With **Windows Terminal** or **CMD**, go to next path `OpenCorePkg-master\Utilities\macrecovery`
@@ -105,9 +97,9 @@ python3 macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000000000 download
 python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
 ```
 
-### Folders
+### Folders 📁
 
-> **Notes**
+> **Note**
 >
 > There is an EFI specifically for BigSur, use It if you don't plan to use Ventura or Monterey.
 
@@ -116,8 +108,8 @@ python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
 3. Download and copy the `EFI` folder of this repository and paste it into your USB.
 4. Make sure you have `com.apple.recovery.boot` and `EFI` in the pendrive.
 
-### SMBIOS
-> **Notes**
+### SMBIOS  💿
+> **Note**
 >
 > In order to use AppleID and other services, check if the serial generated has support with [Apple verification the coverage of a device](https://checkcoverage.apple.com/)
 
@@ -133,7 +125,7 @@ python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
 > 2. Boot macOS without USB is possible, you'll need to create an EFI partition during disk manager steps.
 > 3. In the installation your computer may restart sometimes, keep calm and continue the process.
 
-### Boot USB
+### Boot USB 🚀
 
 1. Restart your computer and open Boot Menu during startup with `F12`
 2. Choose your USB device and wait.
@@ -141,7 +133,7 @@ python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
 4. Press the **space bar** to display hidden options.
 5. Choose the `OC DEVEL (dmg)`, you could recognize like a yellow gear.
 
-### Partitions
+### Partitions 🗄️
 1. A menu must be display, choose `Utility Disk`.
 2. Touch `View` and choose the option `Show all devices`. Once done, all your storage devices will be show in the SideBar.
 3. Choose the device which you'll install the system and apply. the option `erase`. Make sure to have this settings.
@@ -154,7 +146,7 @@ python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
    - Format: MS-DOS (fat)
 > Do not select ExFat, it won't be possible to boot OC.
 
-### System
+### System 💻
 > Keep your pendrive pluged.
 1. Exit `Utility Disk` and choose `Install macOS...` or `Reinstall macOS...`
 2. Acept terms and conditions, now it will show you your devices options to install the system.
@@ -164,28 +156,23 @@ python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
 6. Keep waiting and check if in your screen shows something like "Installation process 27 minutes left".
 7. Your computer could restart 2 or 3 times.
 
-## Enjoy the system 🎓
+### Enjoy the system 🎓
 Congratulation, now you'll see `Select Your Country or Region` interface, that means the system is now installed in your computer.
 
-### Boot without USB
-In order to boot system without pendrive, just follow next steps depending how the case presented in your computer.
 
-#### EFI is mounted
-1. Open Finder and see the SideBar, check if there are two EFI device in `Locations`, one won't have any folder inside.
-2. Copy the `EFI` folder from your pendrive to the main disk's `EFI` partition.
-3. Unplug the USB device and reboot your laptop. Now you can boot macOS without your USB device.
+<br/>
 
-#### EFI's not mounted
-1. Open macOS Terminal and type `sudo diskutil mountDisk disk0s1` (disk0s1 name could depend in the way you created the EFI partition use Utility Disk to check partition)
-2. Open Finder and copy the `EFI` folder from the USB to the main disk's `EFI` partition.
-3. Unplug the USB device and reboot your laptop. Now you can boot macOS without your USB device.
+## Booting without USB 🚀
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HBlanqueto/T480-hackintosh/main/.github/assets/screenshot.png" alt="img" width="850px"/>
-</p>
+- Mount the EFI partition of your main disk.
+- Copy the EFI folder from the USB to the main disk's EFI partition.
+- Unplug the USB device and reboot your laptop to boot macOS.
+  
+<br/>
 
-## Troubleshooting 🩺
-> [ProperTree](https://github.com/corpnewt/ProperTree) is going to be used for modifying `config.plist`. Remember to install `hombrew` and `python-tk` dependency, also you can build te app in macOS.
+
+## Troubleshooting 🛠️❗
+  > [ProperTree](https://github.com/corpnewt/ProperTree) is going to be used for modifying `config.plist`. Remember to install `hombrew` and `python-tk` dependency, also you can build te app in macOS.
 
 
 ### Customize OpenCore
@@ -194,13 +181,13 @@ Dortania's guide has a section that shows many [themes](https://dortania.github.
 ### Samsung PM981
 Most Thinkpad T480 has the `Samsung PM981` which is not compatible with macOS even using NVMeFIX.kext won´t works at all. [Reference](https://www.reddit.com/r/hackintosh/comments/evkljr/samsung_pm981_nvme_hackintosh_reboot_loop/).
 
-### System language
+### System language 
 The default keyboard layout and language is Spanish. The value for English would be `en-US:0`. Check this value language [list](https://github.com/acidanthera/OpenCorePkg/blob/master/Utilities/AppleKeyboardLayouts/AppleKeyboardLayouts.txt).
 
 To change the language modify:
 - `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82 > prev-lang:kbd`
 
-### Latam keyboard
+### Latam keyboard 
 My keyboard has some troubles in the hackintosh, I have the "<>" keys at the bottom of the keyboard, this repository has fixed that key. Follow its README to install.
 
 - [Latam-keyboard by neosergio](https://github.com/neosergio/Latam-Keyboard)
@@ -243,8 +230,15 @@ defaults -currentHost write -g AppleFontSmoothing -int 0
 defaults -currentHost write -g AppleFontSmoothing -int 2
 ```
 
-## Special Greetings 🎉
-I couldn't start in hackintosh without this amazing guides, references and projects. Please take a look where I took all information showed here.
-- [Dortania Gudie](https://dortania.github.io/OpenCore-Install-Guide/)
+
+<br/>
+
+## Special Thanks 🙌
+
+A big thank you to the following references and projects that made this hackintosh project possible:
+
+- [Dortania Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [pierpaolodimarzo](https://github.com/pierpaolodimarzo/ThinkPad-T480)
 - [valnoxy](https://github.com/valnoxy/t480-oc)
+
+Your support and contribution are greatly appreciated! 👏
