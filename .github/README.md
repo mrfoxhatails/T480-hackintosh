@@ -6,13 +6,9 @@ Welcome to the T480 Hackintosh project, aimed at enabling macOS to run on the Le
 
 ## Disclaimer ⚠️
 
-This EFI is based in [pierpaolodimarzo](https://github.com/pierpaolodimarzo/ThinkPad-T480) and [valnoxy](https://github.com/valnoxy/t480-oc) repository, go and support them. This repository couldn't be done without their work.
+This EFI is based in [pierpaolodimarzo](https://github.com/pierpaolodimarzo/ThinkPad-T480) and [valnoxy](https://github.com/valnoxy/t480-oc) repository, go and support them. This repository couldn't be done without their work; any suggestion is acepted to improve the files.
 
-I constantly check `config.plist`status with [sanitychecker](https://sanitychecker.ocutils.me/results/6d99f7fc-bb02-4f1b-8e30-99600eefad79), I'll recommends you to use It as the tool in the OpenCore-PKG, any suggestion is acepted to improve the files.
-
-**What's working?**
-
-Most of all components and services are working, take a look to [pierpaolodimarzo's list](https://github.com/pierpaolodimarzo/ThinkPad-T480/tree/main#-what-works) to make an idea about.
+Most of all components and services are working, take a look to this [list](https://github.com/pierpaolodimarzo/ThinkPad-T480/tree/main#-what-works) to make an idea about. Thigs that doesn't work are Airdrop, Intel Wifi card doesn't have support to that.
 
 <br/>
 
@@ -22,13 +18,13 @@ Most of all components and services are working, take a look to [pierpaolodimarz
 >**IMPORTANT!**
 >
 > 1. Add **NVMeFix.kext** if you don't use any Western Digital storage device.
-> 2. Generate your own **SMBIOS** or your won't be able to use Apple Services.
+> 2. Generate your own **SMBIOS** or your won't be able to use Apple Services and install **[YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)** app
 
 | Category       | Details                            |
 | -------------- | ---------------------------------- |
 | Display        | 1920x1080                          |
 | SMBIOS         | MacBookPro15,2                     |
-| CPU            | Intel Core i7-8650                 |
+| CPU            | Intel Core i7-8550                 |
 | GPU            | Intel UHD Graphics 620             |
 | Memory         | 64GB (32x2) DDR4 3200MHz           |
 | LAN            | Intel Ethernet Connection I219-V   |
@@ -37,6 +33,9 @@ Most of all components and services are working, take a look to [pierpaolodimarz
 | Bluetooth      | Bluetooth 4.2                      |
 | Storage        | Western Digital Blue SN570 1TB     |
 | Thunderbolt    | JHL6240 Thunderbolt 3 LP Alpine Ridge |
+
+Repository descriptios says `"and probably other ThinkPad"`, there is a chance that similar models could use this EFI and may not present problems in the using. Some tested and succesful installation models could be:
+- ThinkPad T580. Tested by [rvlphee](https://github.com/HBlanqueto/T480-hackintosh/issues/2)
 
 <br/>
 
@@ -57,8 +56,12 @@ Make sure to set your StartUp Menu options to UEFI Only and disable `CSM Support
 
 For USB settings, set `Always On USB` to **Disabled**.
 
-In the Thunderbolt Menu, configure the settings accordingly.
+In the Thunderbolt Menu, configure the settings accordingly:
 
+- Thunderbolt BIOS Assist Mode: **Disabled**
+- Wake by Thunderbolt(TM) 3: **Disabled**
+- Security Level: **No security**
+- Support in Pre Boot Environment > Thunderbolt(TM) device: **Enabled**
 
 <br/>
 
@@ -87,10 +90,10 @@ In the Thunderbolt Menu, configure the settings accordingly.
 4. From the [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html#downloading-macos), use any of these commands to download macOS version I support in my EFI:
 
 ```sh
-# Big Sur (11)
+# macOS Big Sur (11)
 python3 macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download
 
-# Monterey (12)
+# macOS Monterey (12)
 python3 macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000000000 download
 
 # macOS Ventura (13)
@@ -167,13 +170,27 @@ Congratulation, now you'll see `Select Your Country or Region` interface, that m
 - Mount the EFI partition of your main disk.
 - Copy the EFI folder from the USB to the main disk's EFI partition.
 - Unplug the USB device and reboot your laptop to boot macOS.
-  
 <br/>
 
 
 ## Troubleshooting 🛠️❗
   > [ProperTree](https://github.com/corpnewt/ProperTree) is going to be used for modifying `config.plist`. Remember to install `hombrew` and `python-tk` dependency, also you can build te app in macOS.
 
+### Processor Optimization
+Using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) tool you could be able to change energy management for `Performance` or `Power Saving``. Read next [section](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpufriend) in Dortania to process to the building of your own kext.
+
+It's important to mention that you may need to know your `TPD-down Frecuency` as the guide says. Check your value in [ARK site](https://ark.intel.com/content/www/us/en/ark.html#@PanelLabel122139)
+
+**My kext settings**
+- TPD-down frecuency: 800 mhz
+- EPP Ranges: 40 : Balanced Performance
+- Perf-Bias: 05 : Modern MacBook Pro
+- Additional Energy Saving Options: N
+
+Once new kext is built, just replace the old one with the new that you created using the tool.
+
+### Compiling Kext
+This is optional, I just like to build some kext using [Lilu-and Friends](https://github.com/corpnewt/Lilu-and-Friends) script.
 
 ### Customize OpenCore
 Dortania's guide has a section that shows many [themes](https://dortania.github.io/OpenCanopy-Gallery/blackosx.html#themes) made by blackosx. In GitHub there are other OpenCore themes not showed in the guide but you could inquire them.
@@ -181,13 +198,13 @@ Dortania's guide has a section that shows many [themes](https://dortania.github.
 ### Samsung PM981
 Most Thinkpad T480 has the `Samsung PM981` which is not compatible with macOS even using NVMeFIX.kext won´t works at all. [Reference](https://www.reddit.com/r/hackintosh/comments/evkljr/samsung_pm981_nvme_hackintosh_reboot_loop/).
 
-### System language 
+### System language
 The default keyboard layout and language is Spanish. The value for English would be `en-US:0`. Check this value language [list](https://github.com/acidanthera/OpenCorePkg/blob/master/Utilities/AppleKeyboardLayouts/AppleKeyboardLayouts.txt).
 
 To change the language modify:
 - `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82 > prev-lang:kbd`
 
-### Latam keyboard 
+### Latam keyboard
 My keyboard has some troubles in the hackintosh, I have the "<>" keys at the bottom of the keyboard, this repository has fixed that key. Follow its README to install.
 
 - [Latam-keyboard by neosergio](https://github.com/neosergio/Latam-Keyboard)
