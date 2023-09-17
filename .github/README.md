@@ -61,8 +61,8 @@ In the Thunderbolt Menu, configure the settings accordingly:
 - Thunderbolt BIOS Assist Mode: **Disabled**
 - Wake by Thunderbolt(TM) 3: **Disabled**
 - Security Level: **No security**
-- Support in Pre Boot Environment > Thunderbolt(TM) device: **Enabled**
-
+- Support in Pre Boot Environment > Thunderbolt(TM) device: **Disabled**
+> Refer to this [issue](https://github.com/HBlanqueto/T480-hackintosh/issues/3) to report any problem with Thunderbolt.
 <br/>
 
 ## Preparing USB 🛠️
