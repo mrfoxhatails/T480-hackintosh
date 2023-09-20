@@ -177,15 +177,15 @@ Congratulation, now you'll see `Select Your Country or Region` interface, that m
   > [ProperTree](https://github.com/corpnewt/ProperTree) is going to be used for modifying `config.plist`. Remember to install `hombrew` and `python-tk` dependency, also you can build te app in macOS.
 
 ### Processor Optimization
-Using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) tool you could be able to change energy management for `Performance` or `Power Saving``. Read next [section](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpufriend) in Dortania to process to the building of your own kext.
+Using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) tool you could be able to change energy management for `Performance` or `Power Saving`. Read next [section](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpufriend) in Dortania to process to the building of your own kext.
 
 It's important to mention that you may need to know your `TPD-down Frecuency` as the guide says. Check your value in [ARK site](https://ark.intel.com/content/www/us/en/ark.html#@PanelLabel122139)
 
-**My kext settings**
+**Configuration I recommend you**
 - TPD-down frecuency: 800 mhz
-- EPP Ranges: 40 : Balanced Performance
+- EPP Ranges: 40 : Balanced
 - Perf-Bias: 05 : Modern MacBook Pro
-- Additional Energy Saving Options: N
+- Additional Energy Saving Options: Y
 
 Once new kext is built, just replace the old one with the new that you created using the tool.
 
