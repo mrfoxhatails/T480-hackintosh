@@ -34,7 +34,7 @@ Most of all components and services are working, take a look to this [list](http
 | Storage        | Western Digital Blue SN570 1TB     |
 | Thunderbolt    | JHL6240 Thunderbolt 3 LP Alpine Ridge |
 
-Repository descriptios says `"and probably other models`, there is a chance that similar models could use this EFI and may not present problems in the using. Some tested and succesful installation models could be:
+Repository descriptios says `"and probably other models"`, there is a chance that similar models could use this EFI and may not present problems in the using. Some tested and succesful installation models could be:
 - ThinkPad T580. Tested by [rvlphee](https://github.com/HBlanqueto/T480-hackintosh/issues/2)
 
 <br/>
