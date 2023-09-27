@@ -1,8 +1,9 @@
 # Thinkpad T480 Hackintosh 🍏
-Welcome to the T480 Hackintosh project, aimed at enabling macOS to run on the Lenovo Thinkpad T480. 🚀
+
+<img src="https://raw.githubusercontent.com/HBlanqueto/T480-hackintosh/main/.github/assets/AboutThisMacS.png" alt="img" align="right" width="380px">
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/HBlanqueto/T480-hackintosh/main/.github/assets/AboutThisMacS.png" alt="img" align="center" width="400px">
+Welcome to the T480 Hackintosh project, aimed at enabling macOS to run on the Lenovo Thinkpad T480. 🚀
 
 ## Disclaimer ⚠️
 
