@@ -20,19 +20,20 @@ Most of all components and services are working, take a look to this [list](http
 > 1. Add **NVMeFix.kext** if you don't use any Western Digital storage device.
 > 2. Generate your own **SMBIOS** or your won't be able to use Apple Services and install **[YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)** app
 
-| Category       | Details                            |
-| -------------- | ---------------------------------- |
-| Display        | 1920x1080                          |
-| SMBIOS         | MacBookPro15,2                     |
-| CPU            | Intel Core i7-8550                 |
-| GPU            | Intel UHD Graphics 620             |
-| Memory         | 64GB (32x2) DDR4 3200MHz           |
-| LAN            | Intel Ethernet Connection I219-V   |
-| Wifi           | Intel Wi-Fi AC 8265NGW             |
-| Audio          | Realtek ALC256                     |
-| Bluetooth      | Bluetooth 4.2                      |
-| Storage        | Western Digital Blue SN570 1TB     |
-| Thunderbolt    | JHL6240 Thunderbolt 3 LP Alpine Ridge |
+| Category       | Details                                   |
+| -------------- | ------------------------------------------|
+| Display        | 1920x1080                                 |
+| SMBIOS         | MacBookPro15,2                            |
+| CPU            | Intel Core i7-8550                        |
+| GPU            | Intel UHD Graphics 620                    |
+| Memory         | 64GB (32x2) DDR4 3200MHz                  |
+| LAN            | Intel Ethernet Connection I219-V          |
+| Wifi           | Intel Wi-Fi AX210                         |
+| Audio          | Realtek ALC256                            |
+| Bluetooth      | Bluetooth 4.2                             |
+| Storage 1      | Western Digital Blue SN570 1TB (macOS)    |
+| Storage 2      | Western Digital Sn520 500GB (Windows 11)  |
+| Thunderbolt    | JHL6240 Thunderbolt 3 LP Alpine Ridge     |
 
 Repository descriptios says `"and probably other models"`, there is a chance that similar models could use this EFI and may not present problems in the using. Some tested and succesful installation models could be:
 - ThinkPad T580. Tested by [rvlphee](https://github.com/HBlanqueto/T480-hackintosh/issues/2)
