@@ -101,6 +101,9 @@ python3 macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000000000 download
 
 # macOS Ventura (13)
 python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download
+
+#macOS Sonoma (14) TESTING
+python3 macrecovery.py -b Mac-7BA5B2D9E42DDD94 download
 ```
 
 ### Folders 📁
