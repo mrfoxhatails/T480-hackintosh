@@ -19,7 +19,8 @@ Most of all components and services are working, take a look to this [list](http
 >**IMPORTANT!**
 >
 > 1. Add **NVMeFix.kext** if you don't use any Western Digital storage device.
-> 2. Generate your own **SMBIOS** or your won't be able to use Apple Services and install **[YogaSMC](https://github.com/zhen-zen/YogaSMC/releases)** app
+> 2. Generate your own **SMBIOS** or your won't be able to use Apple Services.
+> 3. After system installation you must install **[YogaSMC.app](https://github.com/zhen-zen/YogaSMC/releases)**.
 
 | Category       | Details                                   |
 | -------------- | ------------------------------------------|
