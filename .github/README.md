@@ -3,6 +3,8 @@
 <img src="https://raw.githubusercontent.com/HBlanqueto/T480-hackintosh/main/.github/assets/AboutThisMacS.png" alt="img" align="right" width="380px">
 <br/><br/>
 
+**02/2nd/2024, It's working :D UP TO DATE**
+
 Welcome to the T480 Hackintosh project, aimed at enabling macOS to run on the Lenovo Thinkpad T480. 🚀
 
 ## Disclaimer ⚠️
